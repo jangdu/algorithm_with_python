@@ -1,8 +1,10 @@
-num = int(input())
+import sys
+num = sys.stdin.readline()
+
 money = []
 total = 0
 for i in range(num):
-  t = int(input())
+  t = sys.stdin.readline()
   if i == 0:
     money.append(t)
     total+=t
@@ -14,7 +16,6 @@ for i in range(num):
       money.append(t)
       total += money[len(money)-1]
 
-  print(t, len(money))
   
 
 print(total)

@@ -13,25 +13,23 @@
 # 12              12332       6
 # 13              123321      7
 # 14     
-T = int(input())
-for i in range(T):
-    s, d = map(int, input().split())
-    d -= s
-    n = 0
-    count = 0
-    temp = d + 1 if d % 2 != 0 else d
 
-    for i in range(temp, 0, -1):
-        if temp % i == 0:
-            if temp == i:
-                continue
-            n = temp / i
-            if i - n <= 1:
-                break
-    
-    if d >= n ** 2 - (n - 1) and d <= n ** 2:
-        count = n * 2 - 1
+### sum(stack)
+t = int(input())
+for i in range(t):
+    x1, y1, r1, x2, y2, r2 = map(int, input().split())
+    d = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+    rs = r1 + r2
+    rm = abs(r1 - r2)
+    if d == 0:
+        if r1 == r2:
+            print(-1)
+        else:
+            print(0)
     else:
-        count = n * 2
-
-    print(count)
+        if d == rs or d == rm:
+            print(1)
+        elif d < rs and d > rm:
+            print(2)
+        else:
+            print(0)
